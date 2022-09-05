@@ -100,7 +100,7 @@ class RGBReader(object):
         return True
 
 def demo():
-    rgb_file_path = "/home/chli/water/正常速度输液视频.rgb"
+    rgb_file_path = "/home/chli/chLi/WaterDrop/正常速度输液视频.rgb"
     image_width = 2048
     image_height = 1440
     image_channel = 3
