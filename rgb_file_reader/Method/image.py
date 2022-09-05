@@ -10,7 +10,7 @@ from rgb_file_reader.Method.path import createFilePath, renameFile, removeIfExis
 def getImage(data, image_size, image_idx):
     image_data = data[image_idx * image_size : (image_idx + 1) * image_size]
     int_data = [int(x) for x in image_data]
-    image = np.array(int_data).reshape((1440, 2048, 3)).astype(np.uint8)
+    image = np.array(int_data).reshape((1440, 2048, 3)).astype(np.uint8)[...,::-1]
     return image
 
 def saveImage(data, image_size, image_idx, save_folder_path):
