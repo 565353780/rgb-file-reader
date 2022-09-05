@@ -91,6 +91,8 @@ class RGBReader(object):
     def saveAllImage(self, save_folder_path, print_progress=False):
         for_data = range(self.image_num)
         if print_progress:
+            print("[INFO][RGBReader::saveAllImage]")
+            print("\t start save all images...")
             for_data = tqdm(for_data)
         for i in for_data:
             if not self.saveImage(i, save_folder_path):
