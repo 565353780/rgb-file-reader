@@ -6,7 +6,9 @@ from tqdm import tqdm
 
 from rgb_file_reader.Method.image import getImage, saveImage
 
+
 class RGBReader(object):
+
     def __init__(self,
                  rgb_file_path=None,
                  image_width=None,
@@ -41,9 +43,7 @@ class RGBReader(object):
         with open(self.rgb_file_path, "rb") as f:
             self.data = f.read()
 
-        if None in [self.image_width,
-                    self.image_height,
-                    self.image_channel]:
+        if None in [self.image_width, self.image_height, self.image_channel]:
             print("[ERROR][RGBReader::loadRGBData]")
             print("\t image size not valid!")
             return False
@@ -79,9 +79,7 @@ class RGBReader(object):
             print("\t image_idx out of range!")
             return False
 
-        if not saveImage(self.data,
-                         self.image_size,
-                         image_idx,
+        if not saveImage(self.data, self.image_size, image_idx,
                          save_folder_path):
             print("[ERROR][RGBReader::saveImage]")
             print("\t saveImage failed!")
@@ -101,18 +99,16 @@ class RGBReader(object):
                 return False
         return True
 
+
 def demo():
-    rgb_file_path = "/home/chli/chLi/WaterDrop/正常速度输液视频.rgb"
+    rgb_file_path = "/home/chli/chLi/WaterDrop/20221116_zbar_cap/2048_1440.rgb"
     image_width = 2048
     image_height = 1440
     image_channel = 3
-    save_folder_path = "/home/chli/chLi/WaterDrop/20220905_zbar_cap/"
+    save_folder_path = "/home/chli/chLi/WaterDrop/20221116_zbar_cap/images/"
 
-    rgb_reader = RGBReader(rgb_file_path,
-                           image_width,
-                           image_height,
+    rgb_reader = RGBReader(rgb_file_path, image_width, image_height,
                            image_channel)
 
     rgb_reader.saveAllImage(save_folder_path, True)
     return True
-
